@@ -1,0 +1,51 @@
+{
+  "position": "top",
+  "spacing": 0,
+  "height": 0,
+  "reload_style_on_change": true,
+  "layer": "background",
+  "custom/one": {
+    "format": "{text}",
+    "signal": 1,
+    "exec": "~/.config/scripts/workspace deactivate 1",
+    "on-click": "~/.config/scripts/workspace active 1",
+    "return-type": "json"
+  }, 
+  "custom/two": {
+    "format": "{text}",
+    "signal": 2,
+    "exec": "~/.config/scripts/workspace deactivate 2",
+    "on-click": "~/.config/scripts/workspace active 2",
+    "return-type": "json"
+  }, 
+  "custom/three": {
+    "format": "{text}",
+    "signal": 3,
+    "exec": "~/.config/scripts/workspace deactivate 3",
+    "on-click": "~/.config/scripts/workspace active 3",
+    "return-type": "json"
+  },
+   "custom/four": {
+    "format": "{text}",
+    "signal": 4,
+    "exec": "~/.config/scripts/workspace deactivate 4",
+    "on-click": "~/.config/scripts/workspace active 4",
+    "return-type": "json"
+  },
+   "custom/five": {
+    "format": "{text}",
+    "signal": 5,
+    "exec": "~/.config/scripts/workspace deactivate 5",
+    "on-click": "~/.config/scripts/workspace active 5",
+    "return-type": "json"
+  },
+  "modules-left": [
+    "custom/one",
+    "custom/two",
+    "custom/three",
+    "custom/four",
+    "custom/five"
+  ],
+  "modules-right": [
+  ]
+}
