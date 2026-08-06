@@ -46,18 +46,7 @@ compositor. Fix the package layout before adding it to `bootstrap.sh`.
 ## Agent skills
 
 Claude Code, opencode, and `~/.agents` each expect a `skills/` directory at a
-fixed path, and previously held three byte-identical copies of the same 17
-skills. There is now one copy:
-
-```
-~/.local/share/agent-skills/          <- stowed from skills/
-        ^          ^          ^
-        |          |          |
-~/.claude/skills   |   ~/.config/opencode/skills
-              ~/.agents/skills
-```
-
-Those three are plain relative symlinks created by `bootstrap.sh`, not by stow —
+fixed path. Those three are plain relative symlinks created by `bootstrap.sh`, not by stow —
 stow can only create links that point inside its own package tree.
 
 **To add a skill:** drop it in `skills/.local/share/agent-skills/` and commit.
