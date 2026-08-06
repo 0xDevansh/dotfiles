@@ -1,0 +1,14 @@
+# Never commit secrets or machine-local state
+.env
+*.local.json
+**/.credentials.json
+**/hosts.yml
+
+# Dependencies (restored by `npm install`, not tracked)
+node_modules/
+package-lock.json
+
+# Editor/tool runtime droppings
+*.log
+*.sock
+.DS_Store

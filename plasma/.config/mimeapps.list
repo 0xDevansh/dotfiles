@@ -1,0 +1,10 @@
+[Added Associations]
+video/mp4=vlc.desktop;org.kde.haruna.desktop;mpv.desktop;
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+
+[Default Applications]
+video/mp4=vlc.desktop;
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;

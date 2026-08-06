@@ -1,0 +1,20 @@
+[Desktop Entry]
+FullScreen=false
+
+[General]
+LockSidebar=true
+ShowSidebar=true
+
+[Recent Files]
+File1[$e]=$HOME/Downloads/gradesheet.pdf
+File2[$e]=$HOME/Downloads/Designing Data Intensive Applications by Martin Kleppmann.pdf
+File3[$e]=$HOME/vault2/areas/books and articles/Designing Data Intensive Applications.pdf
+File4[$e]=$HOME/Downloads/Project_Progress_Report.pdf
+File5[$e]=$HOME/Downloads/2024ME21111_analytics.pdf
+File6[$e]=$HOME/Downloads/MTL107 book.pdf
+Name1[$e]=gradesheet.pdf
+Name2[$e]=Designing Data Intensive Applications by Martin Kleppmann.pdf
+Name3[$e]=Designing Data Intensive Applications.pdf
+Name4[$e]=Project_Progress_Report.pdf
+Name5[$e]=2024ME21111_analytics.pdf
+Name6[$e]=MTL107 book.pdf

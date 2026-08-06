@@ -1,0 +1,15 @@
+[Annotations]
+annotationToolType=7
+freehandStrokeColor=0,0,0
+rectangleFillColor=0,0,0
+rectangleShadow=false
+
+[GuiConfig]
+quitAfterSaveCopyExport=true
+
+[ImageSave]
+lastImageSaveLocation=file:///home/devansh/Pictures/Screenshots/Screenshot_20260801_004124.png
+translatedScreenshotsFolder=Screenshots
+
+[VideoSave]
+translatedScreencastsFolder=Screencasts

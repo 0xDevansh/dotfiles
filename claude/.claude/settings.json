@@ -1,0 +1,8 @@
+{
+  "model": "opus",
+  "enabledPlugins": {
+    "figma@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true
+  },
+  "theme": "dark"
+}

@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "plugins": {
+    "figma@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/devansh/.claude/plugins/cache/claude-plugins-official/figma/2.2.90",
+        "version": "2.2.90",
+        "installedAt": "2026-07-08T16:45:30.792Z",
+        "lastUpdated": "2026-08-06T09:19:57.275Z",
+        "gitCommitSha": "bea8bea5f676ab2bf76fa822b82f50b66653c098"
+      }
+    ],
+    "clangd-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/devansh/.claude/plugins/cache/claude-plugins-official/clangd-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-07-30T13:47:43.949Z",
+        "lastUpdated": "2026-07-30T13:47:43.949Z"
+      }
+    ]
+  }
+}

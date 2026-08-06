@@ -1,0 +1,12 @@
+[ExtractDialog]
+DirHistory[$e]=$HOME/Downloads/,/run/media/devansh/SharedData/download/How.I.Met.Your.Mother.S01-S09.COMPLETE.XviD-IPT/
+
+[Extraction]
+openDestinationFolderAfterExtraction=true
+
+[General]
+LockSidebar=true
+ShowSidebar=true
+
+[MainWindow]
+StatusBar=Disabled
