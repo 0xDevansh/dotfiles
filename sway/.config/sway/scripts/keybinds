@@ -1,0 +1,153 @@
+#!/usr/bin/env bash
+# Sway keybindings viewer — reads ~/.config/sway/config and renders a
+# grouped cheatsheet. Meant to run inside a floating terminal window.
+
+CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/sway/config"
+
+# ── ANSI colours ────────────────────────────────────────────────────────────
+R=$'\033[0m'
+B=$'\033[1m'
+DIM=$'\033[2m'
+CYAN=$'\033[38;5;81m'
+GREEN=$'\033[38;5;114m'
+YELLOW=$'\033[38;5;180m'
+GRAY=$'\033[38;5;245m'
+
+# ── Parse config ─────────────────────────────────────────────────────────────
+section="General"
+declare -a section_order=()
+declare -A section_data=()
+
+# Friendly labels for common actions
+friendly() {
+    local a="$1"
+    case "$a" in
+        "exec $TERM"|"exec kitty")     echo "Open terminal" ;;
+        exec\ *wofi*)                  echo "App launcher" ;;
+        exec\ *swaylock*)              echo "Lock screen" ;;
+        exec\ *swaymsg\ exit*)         echo "Exit sway" ;;
+        "reload")                      echo "Reload config" ;;
+        "kill")                        echo "Close window" ;;
+        "fullscreen toggle")           echo "Toggle fullscreen" ;;
+        "floating toggle")             echo "Toggle floating" ;;
+        "focus mode_toggle")           echo "Focus floating/tiled" ;;
+        "focus parent")                echo "Focus parent" ;;
+        "focus left"|"focus right"|"focus up"|"focus down") echo "$a" ;;
+        "move left"|"move right"|"move up"|"move down")     echo "$a" ;;
+        "layout stacking")             echo "Layout: stacking" ;;
+        "layout tabbed")               echo "Layout: tabbed" ;;
+        "layout toggle split")         echo "Layout: toggle split" ;;
+        "splith")                      echo "Split horizontal" ;;
+        "splitv")                      echo "Split vertical" ;;
+        "move scratchpad")             echo "Send to scratchpad" ;;
+        "scratchpad show")             echo "Show scratchpad" ;;
+        "mode \"resize\"")             echo "Enter resize mode" ;;
+        "mode \"default\"")            echo "Leave resize mode" ;;
+        exec\ *pactl*+5%*)             echo "Volume up +5%" ;;
+        exec\ *pactl*-5%*)             echo "Volume down -5%" ;;
+        exec\ *pactl*mute*)            echo "Toggle mute" ;;
+        exec\ *source-mute*)           echo "Toggle mic mute" ;;
+        exec\ *brightnessctl*+*)       echo "Brightness up" ;;
+        exec\ *brightnessctl*5%-)      echo "Brightness down" ;;
+        workspace\ number\ *)          echo "Go to workspace ${a##* }" ;;
+        move\ container\ to\ workspace\ number\ *) echo "Move to workspace ${a##* }" ;;
+        resize\ *)                     echo "$a" ;;
+        *)                             # Shorten long exec lines
+                                       echo "${a#exec }" | sed 's/ --[^ ]*//g; s|.*/||; s/ .*$//' ;;
+    esac
+}
+
+add() {
+    local sec="$1" key="$2" label="$3"
+    if [[ -z "${section_data[$sec]+_}" ]]; then
+        section_order+=("$sec")
+    fi
+    section_data[$sec]+="${key}	${label}"$'\n'
+}
+
+while IFS= read -r line; do
+    # Trim leading whitespace
+    line="${line#"${line%%[![:space:]]*}"}"
+
+    # Section header:  # ── Label ──...
+    if [[ "$line" =~ ^#\ ──\ (.+?)\ [─\-]+ ]]; then
+        raw="${BASH_REMATCH[1]}"
+        # Drop "Key bindings: " prefix for brevity
+        section="${raw#Key bindings: }"
+        section="${section%% }"
+        continue
+    fi
+
+    # bindsym line
+    if [[ "$line" =~ ^bindsym[[:space:]]+([^[:space:]]+)[[:space:]]+(.+)$ ]]; then
+        key="${BASH_REMATCH[1]}"
+        action="${BASH_REMATCH[2]}"
+
+        # Substitute sway variables with readable names
+        key="${key//\$mod/Super}"
+        key="${key//\$left/h}"
+        key="${key//\$right/l}"
+        key="${key//\$up/k}"
+        key="${key//\$down/j}"
+
+        # Skip bare modifier-only or mode-internal repeats we don't care about
+        [[ "$action" == 'mode "default"' ]] && continue
+
+        label="$(friendly "$action")"
+        add "$section" "$key" "$label"
+    fi
+done < "$CONFIG"
+
+# ── Render ───────────────────────────────────────────────────────────────────
+clear
+tput civis   # hide cursor
+
+COLS=$(tput cols)
+TITLE="  Sway Keybindings"
+PAD=$(( (COLS - ${#TITLE}) / 2 ))
+printf "%${PAD}s" ""
+echo -e "${B}${CYAN}${TITLE}${R}"
+echo -e "${GRAY}$(printf '─%.0s' $(seq 1 $COLS))${R}"
+echo
+
+# Two-column layout: split sections into left/right halves
+left_secs=()
+right_secs=()
+total=${#section_order[@]}
+half=$(( (total + 1) / 2 ))
+for (( i=0; i<total; i++ )); do
+    if (( i < half )); then
+        left_secs+=("${section_order[$i]}")
+    else
+        right_secs+=("${section_order[$i]}")
+    fi
+done
+
+render_section() {
+    local sec="$1"
+    local out=""
+    out+="${B}${GREEN}  ${sec}${R}\n"
+    while IFS=$'\t' read -r key label; do
+        [[ -z "$key" ]] && continue
+        out+="  ${YELLOW}$(printf '%-28s' "$key")${R}${label}\n"
+    done <<< "${section_data[$sec]}"
+    echo -e "$out"
+}
+
+# Side-by-side using pr (available on all linux)
+left_text=""
+for s in "${left_secs[@]}";  do left_text+="$(render_section "$s")"$'\n'; done
+right_text=""
+for s in "${right_secs[@]}"; do right_text+="$(render_section "$s")"$'\n'; done
+
+# Strip ANSI for column-width calculation, then reattach via paste + pr
+half_width=$(( (COLS - 4) / 2 ))
+paste \
+    <(echo -e "$left_text"  | fold -s -w "$half_width") \
+    <(echo -e "$right_text" | fold -s -w "$half_width") \
+    2>/dev/null || { echo -e "$left_text"; echo -e "$right_text"; }
+
+echo
+echo -e "${GRAY}  Press any key to close${R}"
+tput cnorm
+read -rsn1

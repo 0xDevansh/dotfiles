@@ -14,3 +14,4 @@ source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 
 # opencode
 export PATH=/home/devansh/.opencode/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"

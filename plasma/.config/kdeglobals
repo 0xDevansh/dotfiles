@@ -146,6 +146,7 @@ toolBarFont=Noto Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
 
 [KDE]
 AnimationDurationFactor=0.08838834764831843
+DefaultDarkLookAndFeel=CachyOS-Nord
 LookAndFeelPackage=org.kde.breezedark.desktop
 contrast=4
 frameContrast=0.2

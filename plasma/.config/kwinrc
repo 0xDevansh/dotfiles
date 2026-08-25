@@ -2,7 +2,9 @@
 Id_1=a5b12c88-5952-4979-a98d-8efb52f6ce0e
 Id_2=d0525e7d-4914-4897-8498-ed4902ceb12d
 Id_3=92bc9c65-337e-42ca-9856-6d74cb804d98
-Number=3
+Id_4=90b58e60-2c5c-4dae-8b74-4d4f9b8b89c2
+Id_5=16d3cad7-b519-4d21-859b-6c5057e54639
+Number=5
 Rows=1
 
 [Effect-blur]
@@ -12,6 +14,7 @@ NoiseStrength=3
 [Plugins]
 blurEnabled=true
 shakecursorEnabled=false
+slideEnabled=false
 
 [TabBox]
 LayoutName=thumbnail_grid
@@ -20,7 +23,15 @@ LayoutName=thumbnail_grid
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
+[Tiling][16d3cad7-b519-4d21-859b-6c5057e54639][927d666f-4ce9-499c-a68e-77c6574945d7]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
 [Tiling][5c8fa647-5a24-4b3b-9301-779221b378b4][927d666f-4ce9-499c-a68e-77c6574945d7]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][90b58e60-2c5c-4dae-8b74-4d4f9b8b89c2][927d666f-4ce9-499c-a68e-77c6574945d7]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 

@@ -32,4 +32,8 @@ link_skills "$HOME/.claude/skills"          "../.local/share/agent-skills"
 link_skills "$HOME/.agents/skills"          "../.local/share/agent-skills"
 link_skills "$HOME/.config/opencode/skills" "../../.local/share/agent-skills"
 
+# System-level packages that must be stowed into /etc (requires sudo).
+echo "==> stowing system packages (keyd → /etc)"
+sudo stow -d "$DOTFILES" -t /etc keyd
+
 echo "==> done"

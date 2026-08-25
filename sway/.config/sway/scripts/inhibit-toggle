@@ -1,0 +1,13 @@
+#!/bin/bash
+# Toggle sleep/lock inhibition via swayidle
+LOCK=/tmp/swayidle-inhibit.pid
+
+if [ -f "$LOCK" ] && kill -0 "$(cat $LOCK)" 2>/dev/null; then
+    kill "$(cat $LOCK)"
+    rm -f "$LOCK"
+else
+    systemd-inhibit --what=idle:sleep:handle-lid-switch \
+        --who="Waybar inhibit" --why="User requested" --mode=block \
+        sleep infinity &
+    echo $! > "$LOCK"
+fi

@@ -1,0 +1,122 @@
+/* ── Colors ────────────────────────────────────────────────── */
+@define-color bg      #1a1a1a;
+@define-color bg-pill rgba(30, 30, 30, 0.85);
+@define-color fg      #d8d8d8;
+@define-color fg-dim  #666666;
+@define-color blue    #61afef;
+@define-color green   #98c379;
+@define-color yellow  #e5c07b;
+@define-color red     #e06c75;
+@define-color purple  #c678dd;
+@define-color cyan    #56b6c2;
+@define-color orange  #d19a66;
+
+/* ── Global reset ──────────────────────────────────────────── */
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+/* ── Bar window — transparent so pills float ───────────────── */
+window#waybar {
+  background-color: transparent;
+  color: @fg;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* ── Pill base — applied to every module container ─────────── */
+#workspaces,
+#clock,
+#cpu,
+#memory,
+#custom-battery,
+#network,
+#pulseaudio,
+#custom-power-profile,
+#tray {
+  background-color: @bg-pill;
+  border-radius: 12px;
+  padding: 0 12px;
+  margin: 4px 3px;
+}
+
+/* ── Workspaces ────────────────────────────────────────────── */
+#workspaces {
+  padding: 0 6px;
+}
+
+#workspaces button {
+  all: unset;
+  color: @fg-dim;
+  font-size: 10px;
+  padding: 0 5px;
+  border-radius: 8px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+#workspaces button.focused {
+  color: @fg;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+#workspaces button.urgent {
+  color: @red;
+}
+
+#workspaces button:hover {
+  color: @fg;
+}
+
+/* ── Clock ─────────────────────────────────────────────────── */
+#clock {
+  color: @blue;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ── Stats ─────────────────────────────────────────────────── */
+#cpu     { color: @green; }
+#memory  { color: @purple; }
+
+/* ── Volume ────────────────────────────────────────────────── */
+#pulseaudio         { color: @orange; }
+#pulseaudio.muted   { color: @fg-dim; }
+
+/* ── Network ───────────────────────────────────────────────── */
+#network            { color: @cyan; }
+#network.disconnected { color: @fg-dim; }
+
+/* ── Battery ───────────────────────────────────────────────── */
+#custom-battery                    { color: @fg; }
+#custom-battery.charging,
+#custom-battery.plugged            { color: @green; }
+#custom-battery.power-saver        { color: @cyan; }
+#custom-battery.balanced           { color: @fg; }
+#custom-battery.performance        { color: @orange; }
+#custom-battery.warning            { color: @yellow; }
+#custom-battery.critical           { color: #ff0000; animation: blink 1s steps(1) infinite; }
+#custom-battery.inhibited          { border: 1px solid @yellow; }
+
+@keyframes blink {
+  to { color: @bg-pill; background-color: #ff0000; }
+}
+
+/* ── Tray ──────────────────────────────────────────────────── */
+#tray > .passive       { -gtk-icon-effect: dim; }
+#tray > .needs-attention { -gtk-icon-effect: highlight; }
+
+/* ── Tooltips ──────────────────────────────────────────────── */
+tooltip {
+  background-color: @bg;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  color: @fg;
+}

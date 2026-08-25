@@ -1,0 +1,33 @@
+#!/bin/bash
+# Cycle or set power profile
+# Usage: power-profile          → outputs waybar JSON
+#        power-profile cycle    → cycles to next profile
+#        power-profile set <p>  → sets profile directly
+
+PROFILES=(power-saver balanced performance)
+ICONS=(󰁻 󰁿 󰀣)
+LABELS=(Saver Balanced Performance)
+COLORS=("#56b6c2" "#98c379" "#e06c75")
+
+current=$(powerprofilesctl get)
+
+if [ "$1" = "cycle" ]; then
+    for i in "${!PROFILES[@]}"; do
+        if [ "${PROFILES[$i]}" = "$current" ]; then
+            next=$(( (i + 1) % ${#PROFILES[@]} ))
+            powerprofilesctl set "${PROFILES[$next]}"
+            exit 0
+        fi
+    done
+elif [ "$1" = "set" ]; then
+    powerprofilesctl set "$2"
+    exit 0
+fi
+
+# Output waybar JSON
+for i in "${!PROFILES[@]}"; do
+    if [ "${PROFILES[$i]}" = "$current" ]; then
+        echo "{\"text\": \"${ICONS[$i]} ${LABELS[$i]}\", \"tooltip\": \"Power profile: ${LABELS[$i]}\\nScroll to change\", \"class\": \"${PROFILES[$i]}\"}"
+        exit 0
+    fi
+done

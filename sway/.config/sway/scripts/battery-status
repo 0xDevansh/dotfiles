@@ -1,0 +1,48 @@
+#!/bin/bash
+# Waybar custom battery module — color reflects power profile, inhibit-aware tooltip
+
+BAT=/sys/class/power_supply/BAT1
+AC=/sys/class/power_supply/ACAD
+
+capacity=$(cat "$BAT/capacity" 2>/dev/null || echo "0")
+status=$(cat "$BAT/status" 2>/dev/null || echo "Unknown")
+profile=$(powerprofilesctl get 2>/dev/null || echo "balanced")
+
+# Icon based on capacity
+if   [ "$capacity" -ge 90 ]; then icon="󰁹"
+elif [ "$capacity" -ge 80 ]; then icon="󰂂"
+elif [ "$capacity" -ge 70 ]; then icon="󰂁"
+elif [ "$capacity" -ge 60 ]; then icon="󰂀"
+elif [ "$capacity" -ge 50 ]; then icon="󰁿"
+elif [ "$capacity" -ge 40 ]; then icon="󰁾"
+elif [ "$capacity" -ge 30 ]; then icon="󰁽"
+elif [ "$capacity" -ge 20 ]; then icon="󰁼"
+elif [ "$capacity" -ge 10 ]; then icon="󰁻"
+else icon="󰁺"; fi
+
+# Text and base class
+if [ "$status" = "Charging" ]; then
+    text="󰂄 ${capacity}%"
+    class="charging"
+elif cat "$AC/online" 2>/dev/null | grep -q 1; then
+    text="󰚥 ${capacity}%"
+    class="plugged"
+else
+    text="$icon ${capacity}%"
+    # Low battery overrides profile color
+    if   [ "$capacity" -le 20 ]; then class="critical"
+    elif [ "$capacity" -le 30 ]; then class="warning"
+    else class="$profile"; fi
+fi
+
+# Inhibit status for tooltip
+if [ -f /tmp/swayidle-inhibit.pid ] && kill -0 "$(cat /tmp/swayidle-inhibit.pid)" 2>/dev/null; then
+    sleep_status="󰒳 Inhibited — click to allow"
+    class="${class} inhibited"
+else
+    sleep_status="󰒲 Active — click to inhibit"
+fi
+
+tooltip="Battery: ${capacity}% (${status})\nPower profile: ${profile}\nAuto sleep: ${sleep_status}"
+
+printf '{"text": "%s", "tooltip": "%s", "class": "%s"}\n' "$text" "$tooltip" "$class"

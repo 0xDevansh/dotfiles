@@ -1,0 +1,9 @@
+#!/bin/bash
+# Output waybar JSON for inhibit status
+LOCK=/tmp/swayidle-inhibit.pid
+
+if [ -f "$LOCK" ] && kill -0 "$(cat $LOCK)" 2>/dev/null; then
+    echo '{"text": "󰒳", "tooltip": "Sleep inhibited — click to allow", "class": "inhibited"}'
+else
+    echo '{"text": "󰒲", "tooltip": "Auto sleep active — click to inhibit", "class": ""}'
+fi
