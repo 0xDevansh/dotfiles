@@ -1,14 +1,15 @@
 [Annotations]
 annotationToolType=7
-freehandStrokeColor=0,0,0
-rectangleFillColor=0,0,0
+freehandStrokeColor=170,0,0
+rectangleFillColor=0,0,0,0
 rectangleShadow=false
+rectangleStrokeColor=255,0,0
 
 [GuiConfig]
 quitAfterSaveCopyExport=true
 
 [ImageSave]
-lastImageSaveLocation=file:///home/devansh/Pictures/Screenshots/Screenshot_20260824_193112.png
+lastImageSaveLocation=file:///home/devansh/Pictures/Screenshots/Screenshot_20260909_215250.png
 translatedScreenshotsFolder=Screenshots
 
 [VideoSave]

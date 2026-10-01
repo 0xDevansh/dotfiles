@@ -250,6 +250,7 @@ activate task manager entry 6=Meta+6,Meta+6,Activate Task Manager Entry 6
 activate task manager entry 7=Meta+7,Meta+7,Activate Task Manager Entry 7
 activate task manager entry 8=Meta+8,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=Meta+9,Meta+9,Activate Task Manager Entry 9
+activate widget 102=Meta+F,none,Activate Fokus Widget
 clear history=none,none,Clear Notification History
 clear-history=none,none,Clear Clipboard History
 clipboard_action=Meta+Ctrl+X,Meta+Ctrl+X,Automatic Action Popup Menu
@@ -268,6 +269,14 @@ switch to next activity=none,none,Switch to Next Activity
 switch to previous activity=none,none,Switch to Previous Activity
 toggle do not disturb=none,none,Toggle do not disturb
 
+[postie-daemon]
+_k_friendly_name=Postie
+cycle-device=Meta+Alt+D,Meta+Alt+D,Switch default device
+open-last=Meta+Alt+O,Meta+Alt+O,Open last received file
+send-clipboard=Meta+S\tMeta+Alt+V,Meta+Alt+V,Send clipboard to default device
+send-file=Meta+Shift+F\tMeta+Alt+F,Meta+Alt+F,Send a file to default device…
+show-popup=Meta+Shift+P\tMeta+Alt+P,Meta+Alt+P,Show or hide Postie
+
 [services][firefox.desktop]
 _launch=Ctrl+Alt+F
 
@@ -276,7 +285,3 @@ _launch=Ctrl+Alt+T
 
 [services][org.kde.konsole.desktop]
 _launch=none
-
-[services][org.kde.spectacle.desktop]
-CurrentMonitorScreenShot=none
-OpenWithoutScreenshot=none

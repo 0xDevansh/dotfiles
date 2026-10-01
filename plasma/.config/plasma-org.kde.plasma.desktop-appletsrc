@@ -14,6 +14,28 @@ location=4
 plugin=org.kde.panel
 wallpaperplugin=org.kde.image
 
+[Containments][23][Applets][102]
+immutability=1
+plugin=com.dv.fokus
+
+[Containments][23][Applets][102][Configuration]
+popupHeight=400
+popupWidth=432
+
+[Containments][23][Applets][102][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
+[Containments][23][Applets][102][Configuration][General]
+session_history=[{"kind":"focus","day":"2026-09-11","at":1789101674743,"planned":1055,"actual":1055,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-11","at":1789103881244,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"shortBreak","day":"2026-09-11","at":1789104209006,"planned":300,"actual":322,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-11","at":1789105709120,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"shortBreak","day":"2026-09-11","at":1789107152620,"planned":300,"actual":771,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-11","at":1789114069335,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-11","at":1789114373930,"planned":300,"actual":300,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-11","at":1789116972079,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-11","at":1789118479134,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"shortBreak","day":"2026-09-11","at":1789118849342,"planned":300,"actual":370,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-11","at":1789120312217,"planned":1462,"actual":1462,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-12","at":1789218350690,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-12","at":1789218654274,"planned":300,"actual":300,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-12","at":1789220416191,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-12","at":1789221920748,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"shortBreak","day":"2026-09-12","at":1789223012402,"planned":300,"actual":1091,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-12","at":1789224512432,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-12","at":1789226017556,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"shortBreak","day":"2026-09-13","at":1789304615962,"planned":300,"actual":604,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-13","at":1789306116064,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-13","at":1789306620514,"planned":499,"actual":499,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-13","at":1789316158693,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-13","at":1789317686965,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-13","at":1789317989988,"planned":300,"actual":300,"task":"MCL211 slides"},{"kind":"shortBreak","day":"2026-09-13","at":1789319123016,"planned":300,"actual":1132,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-13","at":1789320623124,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-14","at":1789387671783,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-14","at":1789387974605,"planned":300,"actual":300,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-14","at":1789389478548,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"shortBreak","day":"2026-09-14","at":1789389784052,"planned":300,"actual":305,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-14","at":1789391284269,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-14","at":1789392789424,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-14","at":1789393094362,"planned":300,"actual":300,"task":"MCL211 slides"},{"kind":"longBreak","day":"2026-09-14","at":1789395241126,"planned":1200,"actual":2146,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-14","at":1789396741371,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-14","at":1789398245212,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-14","at":1789399857614,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-15","at":1789465134603,"planned":1055,"actual":1055,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-16","at":1789559179391,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-16","at":1789559482715,"planned":300,"actual":300,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-16","at":1789560985138,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-16","at":1789562488019,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-16","at":1789563990898,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-16","at":1789565676344,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-16","at":1789565982968,"planned":300,"actual":300,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-16","at":1789571500077,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-16","at":1789571804657,"planned":300,"actual":300,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-16","at":1789573482885,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-16","at":1789579595118,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-16","at":1789581374188,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"shortBreak","day":"2026-09-16","at":1789581681228,"planned":300,"actual":306,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-16","at":1789583181387,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-17","at":1789583484085,"planned":300,"actual":300,"task":"MCL211 slides"},{"kind":"shortBreak","day":"2026-09-17","at":1789583788903,"planned":300,"actual":304,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-17","at":1789585289129,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-17","at":1789621838741,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-17","at":1789623343112,"planned":1500,"actual":1500,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-17","at":1789625238696,"planned":526,"actual":526,"task":"MCL211 slides"},{"kind":"focus","day":"2026-09-17","at":1789656879239,"planned":658,"actual":658,"task":"MTL107 exam prep"},{"kind":"focus","day":"2026-09-17","at":1789658767667,"planned":1500,"actual":1500,"task":"MTL107 exam prep"},{"kind":"focus","day":"2026-09-17","at":1789659073819,"planned":300,"actual":300,"task":"MTL107 exam prep"},{"kind":"focus","day":"2026-09-22","at":1790081446378,"planned":1500,"actual":1500,"task":"COL202"},{"kind":"shortBreak","day":"2026-09-22","at":1790081848613,"planned":300,"actual":402,"task":"COL202"},{"kind":"focus","day":"2026-09-22","at":1790082812250,"planned":963,"actual":963,"task":"COL202"}]
+session_state={"stateVal":1,"initialSeconds":1500,"running":false,"breakOvertime":false,"countingUp":false,"deadline":0,"remainingMs":1500000,"startedAt":0,"taskSegmentStart":0,"savedAt":1790082812262,"bootId":"14aa39da-6602-463f-932d-4cdcaaa7294f"}
+task_label=COL202
+task_list=[{"id":1,"title":"QA quiz study","done":true,"archived":true},{"id":2,"title":"MCL211 slides","done":true,"archived":true},{"id":3,"title":"MCL211 problems","done":true,"archived":true},{"id":4,"title":"MTL107 exam prep","done":false,"archived":true},{"id":5,"title":"COL202","done":false,"archived":false}]
+timer_auto_pause_enabled=true
+
+[Containments][23][Applets][102][Shortcuts]
+global=Meta+F
+
 [Containments][23][Applets][24]
 immutability=1
 plugin=org.kde.plasma.kickoff
@@ -130,6 +152,10 @@ plugin=org.kde.plasma.mediacontroller
 immutability=1
 plugin=com.github.korapp.cloudflare-warp
 
+[Containments][23][Applets][28][Applets][94][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
 [Containments][23][Applets][28][General]
 extraItems=org.kde.kscreen,org.kde.plasma.battery,org.kde.plasma.brightness,org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.notifications,org.kde.plasma.volume,org.kde.kdeconnect,org.kde.plasma.bluetooth,org.kde.plasma.keyboardindicator,org.kde.plasma.weather,com.github.korapp.cloudflare-warp
 knownItems=org.kde.kscreen,org.kde.plasma.battery,org.kde.plasma.brightness,org.kde.plasma.cameraindicator,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardlayout,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.notifications,org.kde.plasma.volume,org.kde.kdeconnect,org.kde.plasma.bluetooth,org.kde.plasma.keyboardindicator,org.kde.plasma.weather,com.github.korapp.cloudflare-warp
@@ -147,7 +173,7 @@ immutability=1
 plugin=org.kde.plasma.showdesktop
 
 [Containments][23][General]
-AppletOrder=24;26;27;28;38;39
+AppletOrder=24;26;102;27;28;38;39
 
 [Containments][4][Wallpaper][org.kde.image][General]
 Image=/usr/share/wallpapers/cachyos-wallpapers/north.png
@@ -156,9 +182,9 @@ SlidePaths=/usr/share/wallpapers/
 
 [Containments][43]
 ItemGeometries-1536x960=
-ItemGeometries-1719x1075=
+ItemGeometries-1719x1075=Applet-103:0,672,544,368,0;
 ItemGeometries-1920x1200=
-ItemGeometriesHorizontal=
+ItemGeometriesHorizontal=Applet-103:0,672,544,368,0;
 activityId=b374b927-bf50-470f-842f-47ac5cc15d32
 formfactor=0
 immutability=1
@@ -166,6 +192,20 @@ lastScreen=0
 location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
+
+[Containments][43][Applets][103]
+immutability=1
+plugin=org.kde.plasma.notes
+
+[Containments][43][Applets][103][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
+[Containments][43][Applets][103][Configuration][General]
+color=translucent-light
+cursorPosition=0
+fontSize=10
+noteId=f41d8c0d-488c-4f6e-9fe8-1631279c16
 
 [Containments][43][ConfigDialog]
 DialogHeight=630
@@ -192,6 +232,26 @@ plugin=org.kde.plasma.panelspacer
 expanding=false
 length=15
 
+[Containments][80][Applets][101]
+immutability=1
+plugin=org.kde.kdeconnect
+
+[Containments][80][Applets][101][Configuration]
+popupHeight=400
+popupWidth=560
+
+[Containments][80][Applets][104]
+immutability=1
+plugin=org.kde.plasma.postie
+
+[Containments][80][Applets][104][Configuration]
+popupHeight=541
+popupWidth=432
+
+[Containments][80][Applets][104][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
 [Containments][80][Applets][83]
 immutability=1
 plugin=org.kde.plasma.digitalclock
@@ -203,11 +263,12 @@ popupWidth=560
 [Containments][80][Applets][83][Configuration][Appearance]
 autoFontAndSize=false
 boldText=true
+dateDisplayFormat=BesideTime
+dateFormat=isoDate
 fontFamily=Adwaita Mono
 fontSize=9
 fontStyleName=Bold
 fontWeight=700
-showDate=false
 use24hFormat=2
 
 [Containments][80][Applets][83][Configuration][ConfigDialog]
@@ -306,7 +367,7 @@ immutability=1
 plugin=org.kde.plasma.marginsseparator
 
 [Containments][80][General]
-AppletOrder=84;85;86;83;87;95;100;92;99;88
+AppletOrder=84;85;86;83;87;104;101;95;100;92;99;88
 
 [Containments][93]
 activityId=b374b927-bf50-470f-842f-47ac5cc15d32
