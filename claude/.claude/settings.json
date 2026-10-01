@@ -1,8 +1,14 @@
 {
-  "model": "opus",
+  "model": "sonnet",
   "enabledPlugins": {
     "figma@claude-plugins-official": true,
     "clangd-lsp@claude-plugins-official": true
+  },
+  "effortLevel": "high",
+  "modelSettings": {
+    "claude-sonnet-5": {
+      "effortLevel": "medium"
+    }
   },
   "theme": "dark"
 }
