@@ -15,3 +15,12 @@ source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 # opencode
 export PATH=/home/devansh/.opencode/bin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
+
+# bun completions
+[ -s "/home/devansh/.bun/_bun" ] && source "/home/devansh/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+[ -f "/home/devansh/.ghcup/env" ] && . "/home/devansh/.ghcup/env" # ghcup-env
