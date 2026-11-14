@@ -3,9 +3,10 @@ name: create-study-doc
 description: >-
   Builds a printable LaTeX study PDF from lecture PDFs, slides, and course notes:
   OCR/read scans, crop figures, pedagogical order, short complete sentences with
-  bold exam terms, compact figures, Quick Recall at the end. Use when the user
-  asks for study notes, a quiz/exam binder, printable lecture notes, creat-study-doc,
-  create-study-doc, or to turn course PDFs into a study document.
+  bold exam terms, compact figures, Quick Recall at the end, optional 30-min
+  short-answer quiz. Use when the user asks for study notes, a quiz/exam binder,
+  printable lecture notes, creat-study-doc, create-study-doc, or to turn course
+  PDFs into a study document.
 ---
 
 # Create a printable study document
@@ -26,6 +27,7 @@ These beat any earlier voice in the chat:
 6. **Figures stay small.** Crop chrome. Cap height. Drop duplicates and photo-only slides.
 7. Order by **ease of learning**, not the syllabus list.
 8. Last pages = **Quick Recall**, printable alone.
+9. **Ask** whether to add a practice drill. If yes, follow the quiz rules below (exhaustive, grey inline answers). If the user already asked for a quiz in this chat, skip the ask and write it.
 
 ## Workflow
 
@@ -37,8 +39,9 @@ Copy and track:
 - [ ] 3. Crop teaching figures into studyfigs/
 - [ ] 4. Choose pedagogical order
 - [ ] 5. Write LaTeX (sentences + compact figs + Quick Recall)
-- [ ] 6. Compile, then visually check pages
-- [ ] 7. Fix leftover huge figures / leftover telegram bullets
+- [ ] 6. Ask: add a practice drill? (skip ask if they already said yes)
+- [ ] 7. Compile, then visually check pages
+- [ ] 8. Fix leftover huge figures / leftover telegram bullets
 ```
 
 ### 1. Plan file (fights context rot)
@@ -126,7 +129,37 @@ Last pages, `\clearpage` before them, printable alone.
 
 Do **not** make Quick Recall the only place a fact appears.
 
-### 7. Compile and check
+### 7. Practice quiz (ask first)
+
+After Quick Recall exists, **ask** the user whether to add a short-answer drill.
+
+Use AskQuestion if that tool is available:
+
+- Prompt: `Add a practice drill after Quick Recall?`
+- Options: `Yes — exhaustive why-questions, write-in line, grey inline answers` / `No — notes and Quick Recall only`
+
+If they already asked for a quiz in this conversation, do not ask again.
+
+**If yes**, one `\clearpage` section `Practice drill` after Quick Recall. Do **not** put answers on a later page.
+
+Quiz rules:
+
+- **Exhaustive.** About 40--55 questions so every scoring mechanism in the notes is asked once. Stop when another question would only repeat a name.
+- Mark **Q1--15 as a 30-min cold sit** in the header if the reader stops peeking and stops there.
+- **Challenge understanding.** Stems: *why*, *what fails if you skip X*, *same result two mechanisms*, *which knob and why*. A telegram-memoriser should fail.
+- **Short answers**, not MCQ and not essays.
+- One write-in rule (`\qwrite`), then the answer immediately under it in **grey** (`\ans{...}`, `gray}{0.45}`). Dark enough to read on a printout, still lighter than the question. Never print the answer in normal black under the question.
+- Forbidden: “List the five types of …”, colour-code trivia as the only question on a topic, black inline answers, a separate answer key that doubles the page count.
+
+Preamble helpers:
+
+```latex
+\definecolor{ghost}{gray}{0.45}
+\newcommand{\qwrite}{\par\vspace{0.12em}\noindent\rule{\linewidth}{0.25pt}}
+\newcommand{\ans}[1]{\par\vspace{0.06em}{\footnotesize\color{ghost}#1\par}\vspace{0.38em}}
+```
+
+### 8. Compile and check
 
 ```bash
 pdflatex -interaction=nonstopmode -halt-on-error Notes.tex
@@ -148,3 +181,6 @@ Then:
 - Telegram bullets after a user asked for sentences
 - Omitting a source number because it made the bullet long — write another sentence
 - Relying on chat memory instead of `STUDY_GUIDE_PLAN.md`
+- Adding a quiz of “list the five types” / colour-code trivia
+- Printing answers in normal black under the question (use light grey `\ans`)
+- A separate answer-key chapter that repeats every solution in black

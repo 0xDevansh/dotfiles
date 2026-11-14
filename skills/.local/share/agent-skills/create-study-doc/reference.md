@@ -134,6 +134,9 @@ Do not use `0.90\linewidth` on a raster slide. Height cap `0.20\textheight` stop
 
 \newcommand{\term}[1]{\textbf{#1}}
 \newcommand{\why}[1]{\textit{#1}}
+\definecolor{ghost}{gray}{0.45}
+\newcommand{\qwrite}{\par\vspace{0.12em}\noindent\rule{\linewidth}{0.25pt}}
+\newcommand{\ans}[1]{\par\vspace{0.06em}{\footnotesize\color{ghost}#1\par}\vspace{0.38em}}
 
 \pagestyle{fancy}
 \fancyhf{}

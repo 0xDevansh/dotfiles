@@ -61,3 +61,9 @@ All three tools pick it up immediately; no relinking needed.
 - **Secrets stay out.** No `~/.ssh`, `~/.gnupg`, `~/.claude.json`,
   `~/.claude/.credentials.json`, or `gh/hosts.yml`. Machine-local state
   (histories, caches, sessions, `node_modules`) is not tracked either.
+- **Skill vendor caches stay out.** `skills/.local/share/agent-skills/synced/`
+  is Claude plugin sync; `.trash/` is the installer recycle bin. Both are
+  gitignored. Add a skill by dropping a directory next to those, not inside
+  them.
+- **Okular's recent-files list** (`okularrc`) is gitignored. Spectacle last-save
+  paths are stripped before commit; the rest of `spectaclerc` is a snapshot.

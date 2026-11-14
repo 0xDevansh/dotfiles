@@ -1,5 +1,30 @@
 {
   "model": "sonnet",
+  "hooks": {
+    "SubagentStart": [
+      {
+        "matcher": "tldraw-offline",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node '/home/devansh/.local/share/agent-skills/tldraw-offline/inject-server-context.mjs' SubagentStart"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/home/devansh/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "figma@claude-plugins-official": true,
     "clangd-lsp@claude-plugins-official": true
@@ -8,7 +33,11 @@
   "modelSettings": {
     "claude-sonnet-5": {
       "effortLevel": "medium"
+    },
+    "claude-fable-5-1": {
+      "effortLevel": "medium"
     }
   },
+  "skipWorkflowUsageWarning": true,
   "theme": "dark"
 }

@@ -1,10 +1,13 @@
 [Added Associations]
+text/html=firefox.desktop;zen.desktop;calibre-ebook-edit.desktop;chromium.desktop;helium.desktop;org.kde.kate.desktop;org.kde.kwrite.desktop;okularApplication_txt.desktop;nvim.desktop;dev.zed.Zed.desktop;onlyoffice-desktopeditors.desktop;micro.desktop;ai.storyteller.wordcraft.desktop;vim.desktop;
 video/mp4=vlc.desktop;org.kde.haruna.desktop;mpv.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 
 [Default Applications]
+text/html=firefox.desktop;
 video/mp4=vlc.desktop;
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/t3code=com.t3tools.T3Code.desktop

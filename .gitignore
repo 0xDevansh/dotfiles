@@ -12,3 +12,16 @@ package-lock.json
 *.log
 *.sock
 .DS_Store
+**/__pycache__/
+*.pyc
+
+# Agent skill vendor caches and install leftovers.
+# Claude plugin sync writes `synced/` into the shared store; `.trash/` is
+# the skill installer's recycle bin. Neither is a skill you authored.
+skills/.local/share/agent-skills/.trash/
+skills/.local/share/agent-skills/synced/
+**/.staging/
+**/.last-complete-round
+
+# Okular rewrites this as a recent-files list
+plasma/.config/okularrc
