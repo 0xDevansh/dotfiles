@@ -39,10 +39,6 @@ stow -R kitty       # relink after adding files
 | `skills` | `~/.local/share/agent-skills/` | **Canonical agent skill store** — see below |
 | `plasma` | `~/.config/` | KDE Plasma: kwin, shortcuts, panel layout, app configs |
 
-`waybar/` is present but **not stowed** — it targets `~/waybar` rather than
-`~/.config/waybar`, and this machine runs KDE Plasma rather than a wlroots
-compositor. Fix the package layout before adding it to `bootstrap.sh`.
-
 ## Agent skills
 
 Claude Code, opencode, and `~/.agents` each expect a `skills/` directory at a
