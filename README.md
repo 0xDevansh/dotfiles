@@ -35,9 +35,9 @@ stow -R kitty       # relink after adding files
 | `fastfetch` | `~/.config/fastfetch/` | Fetch tool |
 | `opencode` | `~/.config/opencode/` | opencode config + plugin manifest |
 | `claude` | `~/.claude/` | Claude Code settings + plugin manifests |
-| `agents` | `~/.agents/` | Shared agent skill lockfile |
+| `agents` | `~/.agents/` | Shared agent skill lockfile and canonical `AGENTS.md` |
 | `skills` | `~/.local/share/agent-skills/` | **Canonical agent skill store** — see below |
-| `plasma` | `~/.config/` | KDE Plasma: kwin, shortcuts, panel layout, app configs |
+| `plasma` | `~/.config/` | KDE Plasma: kwin, shortcuts, app configs. Panel widgets are `layout.js` + `just` in the package root (not stowed). Custom plasmoids go in `plasma/.local/share/plasma/plasmoids/`. |
 
 ## Agent skills
 
@@ -46,7 +46,13 @@ fixed path. Those three are plain relative symlinks created by `bootstrap.sh`, n
 stow can only create links that point inside its own package tree.
 
 **To add a skill:** drop it in `skills/.local/share/agent-skills/` and commit.
-All three tools pick it up immediately; no relinking needed.
+All harnesses pick it up immediately; no relinking needed.
+
+**Global `AGENTS.md`:** `agents/.agents/AGENTS.md` stows to `~/.agents/AGENTS.md`.
+`fix-skills.sh` also points Claude Code (`~/.claude/CLAUDE.md`), OpenCode,
+Zed, Pi, and Cursor at that file. Cursor has no official global `AGENTS.md`;
+the script writes `~/.cursor/rules/personal.mdc` as an always-apply pointer,
+and Cursor GUI User Rules (Customize → Rules) should repeat the same pointer.
 
 ## Notes
 

@@ -30,6 +30,29 @@ LINKS=(
   "$HOME/.pi/skills|../.local/share/agent-skills"
 )
 
+# Canonical user AGENTS.md is stowed at ~/.agents/AGENTS.md.
+# Each harness has its own global filename; all of these are the same file.
+AGENTS_LINKS=(
+  "$HOME/.claude/AGENTS.md|../.agents/AGENTS.md"
+  "$HOME/.claude/CLAUDE.md|../.agents/AGENTS.md"
+  "$HOME/.cursor/AGENTS.md|../.agents/AGENTS.md"
+  "$HOME/.config/opencode/AGENTS.md|../../.agents/AGENTS.md"
+  "$HOME/.config/zed/AGENTS.md|../../.agents/AGENTS.md"
+  "$HOME/.pi/agent/AGENTS.md|../../.agents/AGENTS.md"
+)
+
+# Cursor GUI/CLI have no official user-level AGENTS.md. An always-apply
+# rule under ~/.cursor/rules is the closest on-disk hook (Help documents
+# it; CLI may only pick it up for workspaces under $HOME).
+CURSOR_RULE_DEST="$HOME/.cursor/rules/personal.mdc"
+CURSOR_RULE_BODY='---
+description: Personal global agent instructions
+alwaysApply: true
+---
+
+Follow `~/.agents/AGENTS.md`. Read it at session start if it is not already in context. A project `AGENTS.md` or `.cursor/rules` wins on conflict.
+'
+
 # ── helpers ────────────────────────────────────────────────────────────────────
 
 green()  { printf '\033[32m%s\033[0m\n' "$*"; }
@@ -93,6 +116,24 @@ for entry in "${LINKS[@]}"; do
   target="${entry##*|}"
   fix_link "$dest" "$target"
 done
+
+echo ""
+echo "AGENTS.md:"
+for entry in "${AGENTS_LINKS[@]}"; do
+  dest="${entry%%|*}"
+  target="${entry##*|}"
+  fix_link "$dest" "$target"
+done
+
+echo ""
+echo "Cursor user rule:"
+mkdir -p "$(dirname "$CURSOR_RULE_DEST")"
+if [ -f "$CURSOR_RULE_DEST" ] && [ "$(cat "$CURSOR_RULE_DEST")" = "$CURSOR_RULE_BODY" ]; then
+  green "  OK  $CURSOR_RULE_DEST"
+else
+  printf '%s' "$CURSOR_RULE_BODY" > "$CURSOR_RULE_DEST"
+  green "  NEW $CURSOR_RULE_DEST  (alwaysApply pointer to ~/.agents/AGENTS.md)"
+fi
 
 echo ""
 echo "All harnesses linked."
